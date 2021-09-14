@@ -21,7 +21,7 @@ Becomes:
 function transformToLis(obj){
   // Solution code here...
 
-    var result= result.keys(obj).map(key => `<li>${key}: ${obj[key]}</li>`);
+    var result= Object.keys(obj) .map(key => `<li>${key}: ${obj[key]}</li>`);
     return result;
   
 }
@@ -60,7 +60,9 @@ const totalSum = (input) => {
   // Solution code here...
   let arraySum = 0;
   input.map((x) => {
-    x.map((y) => { total += y; });
+    x.map((y) => { 
+      arraySum += y; 
+    });
   });
   return arraySum;
 };
@@ -79,6 +81,8 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+
+  // ================= not sure how to solve it , can you give me a starting hint?
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -145,6 +149,14 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+
+  return data.map(element => {
+    if (  element.gender === "female"  ||
+      element.gender === "male"  ) 
+      {
+      return element.name;
+    }
+  }).filter(elemntValue => elemntValue !== undefined).join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -155,6 +167,16 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
+
+  let shortestCharacter = '';
+  let characterArray = data.map(obj => obj.height).sort((x, y) => x - y);
+  data.forEach(value => {
+    if (characterArray[0] === value.height) {
+
+      shortestCharacter = value.name;
+    }
+  })
+  return shortestCharacter;
 };
 
 /* ------------------------------------------------------------------------------------------------
