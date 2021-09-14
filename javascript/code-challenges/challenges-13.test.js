@@ -8,9 +8,9 @@ Write a function named longestString that takes in an array of strings and retur
 
 const longestString = (arr) => {
 // Solution code here...
-
-
-
+  arr.reduce(function(x, y) { 
+    return x.length > y.length ? x : y
+  }, '');
 };
   
 /* ------------------------------------------------------------------------------------------------
@@ -23,6 +23,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
+  first_letters = arr.map(x => x[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,6 +36,8 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
+  let filteredStrings = arr.filter((string) => typeof string === ":)")
+  return filteredStrings;
 };
 
 /* ------------------------------------------------------------------------------------------------
